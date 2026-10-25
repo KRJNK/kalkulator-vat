@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kalkulator VAT — netto ↔ brutto</title>
+<meta name="description" content="Dolicz lub odejmij VAT: stawki 23%, 8%, 5%, 0% i zwolnienie. Szybko sprawdzisz kwotę podatku i cenę końcową.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧾</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <!-- TODO: link do portfolio, gdy powstanie -->
+  <h1>Kalkulator VAT</h1>
+  <p>Netto na brutto i z powrotem, z każdą polską stawką.</p>
+  <section class="card">
+    <label>Kwota (zł) <input id="kw" type="number" min="0" step="any" value="1000"></label>
+    <label>Stawka <select id="st"><option>23</option><option>8</option><option>5</option><option>0</option></select></label>
+    <label>Kierunek <select id="dir"><option value="nb">netto → brutto</option><option value="bn">brutto → netto</option></select></label>
+  </section>
+  <section class="card">
+    <h2>Wynik</h2>
+    <div id="out" class="big">—</div>
+    <p id="detail" class="hint"></p>
+  </section>
+  <section class="card">
+    <h2>Jak to działa</h2>
+    <p>Przy kierunku netto → brutto mnożymy kwotę przez (1 + stawka), np. 1000 zł netto przy 23% daje 1230 zł brutto, a sam VAT to 230 zł. W drugą stronę dzielimy cenę brutto przez (1 + stawka): 1230 zł brutto przy 23% to 1000 zł netto. Stawka 0% i zwolnienie zostawiają kwotę bez zmian.</p>
+    <p><strong>Przykład:</strong> faktura na 2500 zł netto przy stawce 23% to 3075 zł brutto, w tym 575 zł VAT do odprowadzenia. Małe stawki 8% i 5% dotyczą m.in. żywności, leków i budownictwa mieszkaniowego.</p>
+  </section>
+  <div id="ads-slot" hidden></div>
+  <footer><a href="privacy.html">Prywatność</a> · <a href="kontakt.html">Kontakt</a></footer>
+</main>
+<script src="app.js"></script>
+<script src="ads.js"></script>
+</body>
+</html>
